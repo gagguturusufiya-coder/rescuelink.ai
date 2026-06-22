@@ -115,3 +115,21 @@ Test the full-stack coordination by switching roles in the top-right navbar drop
 3. **Disaster Simulator**: Click the **Disaster Simulator** tab, select *Fire*, input coordinates (e.g., lat: `19.0760`, lng: `72.8777`), and click **Inject Simulated Disaster**. This automatically creates danger zone circular overlays on the map and broadcasts evacuation alerts.
 4. **Manage Supplies**: Under **Shared Supplies**, click **Claim/Dispatch** to claim community-offered resources once dispatched.
 5. **Live Analytics**: Open the **Live Analytics** tab to view custom SVG charts plotting incident categories, depot supplies, and rescue completion rates.
+
+---
+
+## 📸 Local Session Visuals
+
+Here are some screenshots and video walk-throughs captured during local execution:
+
+### 1. Dashboard Loaded
+![Homepage Loaded](screenshots/homepage_loaded.png)
+
+### 2. AI Companion responding in Hindi / English with Local Fallbacks
+![Chatbot Response](screenshots/chatbot_response.png)
+
+### 3. Mumbai-centered Map with Danger Zones & Safe Bypass Route
+![Emergency Map View](screenshots/emergency_map_view.png)
+
+### 4. Video Demonstration (Walkthrough)
+![Video Demonstration](screenshots/rescuelink_ai_demo.webp)
