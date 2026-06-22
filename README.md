@@ -5,6 +5,8 @@
 
 RescueLink AI functions as an intelligent emergency companion providing safe routing detours around flood/fire zones, voice alert broadcasts for visually impaired/elderly accessibility, citizen surplus resource sharing, automated volunteer matching, and offline synchronization queues.
 
+![RescueLink AI Homepage Preview](screenshots/homepage_loaded.png)
+
 ---
 
 ## 🛠️ Technology Stack & Architecture
