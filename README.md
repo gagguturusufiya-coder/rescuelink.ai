@@ -7,6 +7,50 @@ RescueLink AI functions as an intelligent emergency companion providing safe rou
 
 ![RescueLink AI Homepage Preview](screenshots/homepage_loaded.png)
 
+## 🗺️ System Workflow Flowchart
+
+```mermaid
+graph TD
+    classDef citizen fill:#2e86de,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef volunteer fill:#1dd1a1,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef admin fill:#ff4b5c,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef server fill:#2c3e50,stroke:#fff,stroke-width:2px,color:#fff;
+
+    subgraph "Citizen Hub (Blue)"
+        C1["Trigger Pulsing SOS"]:::citizen --> C2{"Network Status?"}:::citizen
+        C2 -- "Online" --> C3["Transmit Precise GPS Coordinates"]:::citizen
+        C2 -- "Offline" --> C4["Queue Alert locally (Local Storage)"]:::citizen
+        C5["Ask AI Chatbot (Hindi/English)"]:::citizen --> C6{"API Status?"}:::citizen
+        C6 -- "Connected" --> C7["Gemini AI Response & Safe Routes"]:::citizen
+        C6 -- "Error/Offline" --> C8["Fallback Expert Rules (First-Aid Vault)"]:::citizen
+        C9["Report Hazards / Share Supplies"]:::citizen --> C10["Display Pins on Map"]:::citizen
+    end
+
+    subgraph "Rescue Server (Gray)"
+        C3 --> S1["Express Router (api/emergencies)"]:::server
+        C4 -.->|Sync when online| S1
+        C10 --> S2["Express Router (api/reports)"]:::server
+        S1 --> DB[("Local JSON DB (database.json)")]:::server
+        S2 --> DB
+        DB --> AN["Live System Analytics Dashboard"]:::server
+    end
+
+    subgraph "Volunteer Hub (Green)"
+        V1["Switch to Volunteer Profile"]:::volunteer --> V2["View Pending Beacons Map"]:::volunteer
+        V2 --> V3["Claim Rescue Mission"]:::volunteer
+        V3 --> S1
+        V3 --> V4["Retrieve GPS Detour Route"]:::volunteer
+        V4 --> V5["Bypasses Hazard danger-zones"]:::volunteer
+    end
+
+    subgraph "Admin Hub (Red)"
+        A1["Access Control Console"]:::admin --> A2["Broadcast Warnings (Voice Alerts TTS)"]:::admin
+        A2 --> C9
+        A1 --> A3["Disaster Simulator (Spawn Floods/Fires)"]:::admin
+        A3 --> S1
+    end
+```
+
 ---
 
 ## 🛠️ Technology Stack & Architecture
